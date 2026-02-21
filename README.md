@@ -24,7 +24,7 @@ Next, install the dependencies and run the script, specifying the source model, 
 ```bash
 uv sync
 source .venv/bin/activate
-python3 main.py --source deepseek-ai/DeepSeek-R1 --target ubicloud/DeepSeek-R1-Pruned-108B --layers 12 [--upload True]
+python3 main.py --source deepseek-ai/DeepSeek-R1 --target ubicloud/DeepSeek-R1-Pruned-108B --layers 12 [--upload]
 
 Sample output: [ubicloud/DeepSeek-R1-Pruned-108B](https://huggingface.co/ubicloud/DeepSeek-R1-Pruned-108B)
 ```
