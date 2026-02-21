@@ -22,11 +22,12 @@ export HF_TOKEN="hf_..."
 Next, install the dependencies and run the script, specifying the source model, target model name, and the number of layers to keep:
 
 ```bash
-pip install -r requirements.txt
-
-python3 main.py --source deepseek-ai/DeepSeek-R1 --target "DeepSeek-R1-Pruned-108B" --layers 12 --username "ubicloud"
-```
+uv sync
+source .venv/bin/activate
+python3 main.py --source deepseek-ai/DeepSeek-R1 --target ubicloud/DeepSeek-R1-Pruned-108B --layers 12 [--upload True]
 
 Sample output: [ubicloud/DeepSeek-R1-Pruned-108B](https://huggingface.co/ubicloud/DeepSeek-R1-Pruned-108B)
+```
 
-> **🚀 Tip:** This tool is designed to handle models far larger than your available system RAM (for example, processing a 700B-parameter model on a laptop with only 16 GB of memory). Layers that don't fit in RAM are temporarily offloaded to the disk (`offload_tmp/`). Because of disk offloading, the speed of this tool is highly dependent on your disk speed. Use an **NVMe SSD** for the best performance.
+> **🚀 Tip:** This tool is designed to handle models far larger than your available system RAM (for example, processing a 700B-parameter model on a laptop with only 16 GB of memory).
+It only downloads the relevant weights and processes them in a streaming fashion.
